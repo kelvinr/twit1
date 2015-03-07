@@ -1,8 +1,8 @@
 =render 'shared/page_title', title: 'New status'
 =render 'shared/error_msg', obj: @status
 
-.container
-  .well
+.container#form
+  .well.col-md-8
     =form_for @status do |f|
       .form-group
         =f.label :body, "Status"

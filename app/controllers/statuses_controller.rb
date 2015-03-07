@@ -1,5 +1,9 @@
 class StatusesController < ApplicationController
 
+  def index
+    @statuses = Status.all
+  end
+
   def new
     @status = Status.new
   end
@@ -7,7 +11,7 @@ class StatusesController < ApplicationController
 
   def create
     @status = Status.new(params.require(:status).permit(:body))
-    @user = User.first
+    @user = current_user
     @status.creator = @user
 
     if @status.save

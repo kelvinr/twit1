@@ -1,7 +1,8 @@
-%h4
-  =link_to @user.username, user_path(@user.username)
+.container
+  %h4
+    =link_to @user.username, user_path(@user.username)
 
-%p
-  %ul
-    -@user.statuses.each do |status|
-      %li= status.body
+  %p
+    %ul
+      -@user.statuses.each do |status|
+        %li= status.body

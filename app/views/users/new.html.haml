@@ -1,8 +1,8 @@
 =render 'shared/page_title', title: 'Register'
 =render 'shared/error_msg', obj: @user
 
-.container
-  .well
+.container#form
+  .well.col-md-6
     =form_for @user do |f|
       .form-group
         =f.label :username
@@ -20,4 +20,4 @@
         =f.label :password_confirmation
         =f.password_field :password_confirmation, class: 'form-control'
 
-      =f.submit 'Create', class: 'form-control'
+      =f.submit 'Create', class: 'btn btn-success'

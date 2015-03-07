@@ -1,0 +1,4 @@
+.container
+  .well
+    %h4= status.body
+    %h5=link_to "#{status.creator.username}", user_path(status.creator.username)

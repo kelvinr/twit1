@@ -1,2 +1,16 @@
 @import 'bootstrap-sprockets';
 @import 'bootstrap';
+
+#form {
+  display: flex;
+  -webkit-justify-content: center;
+  text-align: center;
+  .btn {
+    width: 40%;
+  }
+}
+
+.form-control {
+  max-width: 75%;
+  margin: auto;
+}
