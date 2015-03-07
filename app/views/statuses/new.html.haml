@@ -1,0 +1,11 @@
+=render 'shared/page_title', title: 'New status'
+=render 'shared/error_msg', obj: @status
+
+.container
+  .well
+    =form_for @status do |f|
+      .form-group
+        =f.label :body, "Status"
+        =f.text_area :body, class:'form-control'
+
+      =f.submit 'Submit', class: 'btn btn-success'
