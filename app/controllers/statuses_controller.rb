@@ -1,13 +1,9 @@
 class StatusesController < ApplicationController
-
-  def index
-    @statuses = Status.all
-  end
+  before_action :require_user
 
   def new
     @status = Status.new
   end
-
 
   def create
     @status = Status.new(params.require(:status).permit(:body))

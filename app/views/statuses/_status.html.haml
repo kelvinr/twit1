@@ -1,4 +1,8 @@
 .container
-  .well
+  .well.well-sm
     %h4= status.body
-    %h5=link_to "#{status.creator.username}", user_path(status.creator.username)
+    %h5
+      =link_to "#{status.creator.username}", user_path(status.creator.username)
+      %small
+        =time_ago_in_words(status.created_at)
+        ago

@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  
+
   def new; end
 
   def create
@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
       flash[:success] = "You are now logged in."
-      redirect_to user_path(user.username)
+      redirect_to timeline_path
     else
       flash.now[:danger] = "There is something wrong with your username or password."
       render :new
