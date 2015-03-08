@@ -3,7 +3,7 @@
     =mention.status.body
     %h5
       by
-      =link_to "#{mention.status.creator.username}", user_path(mention.status.creator.username)
+      =link_to mention.status.creator.username, mention.status.creator.username
       %small
         =time_ago_in_words mention.status.created_at
         ago
