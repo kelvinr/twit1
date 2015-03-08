@@ -1,8 +1,9 @@
 .container
   .well.well-sm
-    %h4= status.body
-    %h5
+    h4
+      =status.body
+    h5
       =link_to status.creator.username, status.creator.username
-      %small
+      small<
         =time_ago_in_words status.created_at
-        ago
+        |  ago

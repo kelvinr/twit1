@@ -1,9 +1,9 @@
 .container
   .well.well-sm
     =mention.status.body
-    %h5
-      by
+    h5
+      ' by
       =link_to mention.status.creator.username, mention.status.creator.username
-      %small
+      small<
         =time_ago_in_words mention.status.created_at
-        ago
+        |  ago

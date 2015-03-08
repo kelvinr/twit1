@@ -1,12 +1,11 @@
 .container
-  %h4
-    =link_to @user.username, @user.username
-  %h4
+  h4= link_to @user.username, @user.username
+  h4
     -if logged_in?
       -unless current_user.following.include? @user
         =link_to '+ follow', follow_user_path(@user), method: :post
       -else
         =link_to '- unfollow', unfollow_user_path(@user), method: :post
-  %p
-    %ul
+  p
+    ul
       =render @user.statuses
