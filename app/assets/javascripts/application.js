@@ -18,3 +18,7 @@
 //= require bootstrap/collapse
 //= require turbolinks
 //= require_tree .
+
+$(function(){
+  $('.field_with_errors label').append('<sup class="asterisk"> *');
+});

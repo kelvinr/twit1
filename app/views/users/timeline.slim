@@ -1,3 +1,2 @@
-.container
-  =render 'shared/page_title', title: "Timeline"
-  =render @statuses
+=render 'shared/page_title', title: "Timeline"
+=render @statuses.sort_by{|status| status.created_at}.reverse

@@ -6,12 +6,10 @@ html
     =javascript_include_tag :application, 'data-turbolinks-track' => true
     =csrf_meta_tags
   body
-    .container-fluid
-      .row
-        =render 'layouts/navbar'
+    =render 'layouts/navbar'
 
-      .row
-        =render 'layouts/msgs' if flash.keys.any?
-        =yield
+    .container-fluid
+      =render 'layouts/msgs' if flash.keys.any?
+      =yield
 
     footer

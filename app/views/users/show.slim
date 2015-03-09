@@ -1,9 +1,8 @@
-.container
-  =render 'shared/page_title', title: @user.username
-  h4
-    -if logged_in?
-      -unless current_user.following.include? @user
-        =link_to '+ follow', follow_user_path(@user), method: :post
-      -else
-        =link_to '- unfollow', unfollow_user_path(@user), method: :post
-  =render @user.statuses.sort_by{|status| status.created_at}.reverse
+=render 'shared/page_title', title: @user.username
+h4
+  -if logged_in?
+    -unless current_user.following.include? @user
+      =link_to '+ follow', follow_user_path(@user), method: :post
+    -else
+      =link_to '- unfollow', unfollow_user_path(@user), method: :post
+=render @user.statuses.sort_by{|status| status.created_at}.reverse

@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     current_user.following.each do |user|
       @statuses << user.statuses
     end
-    @statuses.flatten!.sort_by!{|status| status.created_at}.reverse!
+    @statuses.flatten!
   end
 
   def mentions

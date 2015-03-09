@@ -1,5 +1,4 @@
-.container
-  -flash.each do |type, msg|
-    .alert class="alert-#{type == 'success' ? type : 'danger'}"
-      a.close data-dismiss='alert' X
-      div id="#{type}" = msg
+-flash.each do |type, msg|
+  .alert class="alert-#{type == 'success' ? type : 'danger'}"
+    a.close data-dismiss='alert' X
+    div id="#{type}" = msg

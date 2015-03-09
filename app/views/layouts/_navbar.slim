@@ -1,23 +1,29 @@
-nav.navbar.navbar-inverse
-  .navbar-header
-    ul.nav.navbar-nav
+nav.navbar.navbar-inverse role='navigation'
+  .container-fluid
+    .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#navbar-collapse"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
       =link_to 'Twit', root_path, class: 'navbar-brand'
-  .nav.navbar-nav
-    ul.nav.navbar-nav
-      -if logged_in?
-        li= link_to 'New Status', new_status_path
-        li= link_to 'Timeline', timeline_path
-        li= link_to "Mentions (#{current_user.unread_mentions.size})", mentions_path
-        </ul>
-        </div>
-        ul.nav.navbar-nav.navbar-right
-          li.dropdown
-            a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-              =current_user.username
-              span.caret
-            ul.dropdown-menu
-              li= link_to 'Account', user_path(current_user.username)
-              li= link_to 'Logout', logout_path
-      -else
-        li= link_to 'Register', new_user_path
-        li= link_to 'Login', login_path
+    .navbar-collapse.collapse#navbar-collapse
+      .nav.navbar-nav
+        ul.nav.navbar-nav
+          -if logged_in?
+            li= link_to 'New Status', new_status_path
+            li= link_to 'Timeline', timeline_path
+            li= link_to "Mentions (#{current_user.unread_mentions.size})", mentions_path
+            </ul>
+            </div>
+            ul.nav.navbar-nav.navbar-right
+              li.dropdown
+                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                  =current_user.username
+                  span.caret<
+                ul.dropdown-menu
+                  li= link_to 'Account', user_path(current_user.username)
+                  li= link_to 'Logout', logout_path
+          -else
+            li= link_to 'Register', new_user_path
+            li= link_to 'Login', login_path
