@@ -1,9 +1,14 @@
-.container
-  .well.well-sm
-    h4
-      =status.body
-    h5
-      =link_to status.creator.username, status.creator.username
-      small<
-        =time_ago_in_words status.created_at
-        |  ago
+.well.well-sm
+  h4
+    =auto_links(status.body)
+  h5
+    ' by
+    -if status.retweet_id
+      =link_to status.parent_status.creator.username, user_path(status.parent_status.creator.username)
+      '  > Retweet by:
+    =link_to status.creator.username, status.creator.username
+    small<
+      =time_ago_in_words status.created_at
+      |  ago
+  -if logged_in? && status.creator != current_user
+    =link_to 'Retweet', retweet_status_path(status), method: :post

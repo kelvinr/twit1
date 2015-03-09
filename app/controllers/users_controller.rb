@@ -23,6 +23,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by username: params[:username]
+    wrong_path unless @user
   end
 
   def follow
@@ -53,7 +54,7 @@ class UsersController < ApplicationController
     current_user.following.each do |user|
       @statuses << user.statuses
     end
-    @statuses.flatten!
+    @statuses.flatten!.sort_by!{|status| status.created_at}.reverse!
   end
 
   def mentions

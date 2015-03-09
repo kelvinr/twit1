@@ -14,6 +14,12 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :statuses, only: [:new, :create]
+  resources :hashtags, only: :show
+
+  resources :statuses, only: [:new, :create] do
+    member do
+      post 'retweet'
+    end
+  end
   get '/:username' => 'users#show', as: 'user'
 end

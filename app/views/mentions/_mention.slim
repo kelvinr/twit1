@@ -1,9 +1,1 @@
-.container
-  .well.well-sm
-    =mention.status.body
-    h5
-      ' by
-      =link_to mention.status.creator.username, mention.status.creator.username
-      small<
-        =time_ago_in_words mention.status.created_at
-        |  ago
+=render mention.status

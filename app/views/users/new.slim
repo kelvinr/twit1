@@ -1,23 +1,23 @@
-=render 'shared/page_title', title: 'Register'
-=render 'shared/error_msg', obj: @user
+.container
+  =render 'shared/page_title', title: 'Register'
+  =render 'shared/error_msg', obj: @user
+  #form
+    .well.col-md-6
+      =form_for @user do |f|
+        .form-group
+          =f.label :username
+          =f.text_field :username, class: 'form-control'
 
-.container#form
-  .well.col-md-6
-    =form_for @user do |f|
-      .form-group
-        =f.label :username
-        =f.text_field :username, class: 'form-control'
+        .form-group
+          =f.label :email
+          =f.email_field :email, class: 'form-control'
 
-      .form-group
-        =f.label :email
-        =f.email_field :email, class: 'form-control'
+        .form-group
+          =f.label :password
+          =f.password_field :password, class: 'form-control'
 
-      .form-group
-        =f.label :password
-        =f.password_field :password, class: 'form-control'
+        .form-group
+          =f.label :password_confirmation
+          =f.password_field :password_confirmation, class: 'form-control'
 
-      .form-group
-        =f.label :password_confirmation
-        =f.password_field :password_confirmation, class: 'form-control'
-
-      =f.submit 'Create', class: 'btn btn-success'
+        =f.submit 'Create', class: 'btn btn-success'

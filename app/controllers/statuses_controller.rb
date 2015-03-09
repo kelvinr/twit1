@@ -17,4 +17,12 @@ class StatusesController < ApplicationController
       render :new
     end
   end
+
+  def retweet
+    status = Status.find(params[:id])
+    new_status = Status.create(body: status.body, creator: current_user, parent_status: status)
+
+    new_status.save ? flash[:success] = 'Retweeted!' : flash[:error] = 'Couldn\'t retweet!'
+    redirect_to :back
+  end
 end
